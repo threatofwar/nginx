@@ -1,0 +1,12 @@
+services:
+  nginx:
+    build: .
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./ssl:/etc/nginx/ssl
+      - ./your-domain.conf:/etc/nginx/sites-available/your-domain.conf
+    environment:
+      - NGINX_HOST=your-domain
+      - NGINX_PORT=80
